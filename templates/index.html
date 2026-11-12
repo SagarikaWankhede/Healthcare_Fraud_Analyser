@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Provider Fraud Detection & Audit Prioritization System</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/css/custom.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 900: '#0a1128', 800: '#101f42', 700: '#1c2e56' },
+                        teal: { 500: '#0d9488', 600: '#0f766e', 400: '#2dd4bf' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen">
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-teal-500/20">
+                    <i data-lucide="shield-alert" class="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                    <span class="font-bold text-lg tracking-tight text-white flex items-center gap-2">
+                        MediGuard <span class="text-xs bg-teal-500/20 text-teal-400 px-2 py-0.5 rounded-full border border-teal-500/30">Audit Prioritization AI</span>
+                    </span>
+                    <p class="text-xs text-slate-400">Healthcare Fraud Detection & Resource Optimization</p>
+                </div>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center space-x-1">
+                <a href="#overview" class="px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white rounded-lg hover:bg-slate-800 transition">Overview</a>
+                <a href="#simulator" class="px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white rounded-lg hover:bg-slate-800 transition">Audit Simulator</a>
+                <a href="#syllabus" class="px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white rounded-lg hover:bg-slate-800 transition">Syllabus Techniques</a>
+                <a href="#benchmark" class="px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white rounded-lg hover:bg-slate-800 transition">Models & Ablation</a>
+                <a href="#manifest" class="px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white rounded-lg hover:bg-slate-800 transition">Top 100 Manifest</a>
+                <a href="#calculator" class="px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white rounded-lg hover:bg-slate-800 transition">Risk Calculator</a>
+                <a href="#slides" class="px-3 py-1.5 text-xs font-semibold text-teal-400 bg-teal-500/10 border border-teal-500/30 rounded-lg hover:bg-teal-500/20 transition flex items-center gap-1.5">
+                    <i data-lucide="presentation" class="w-3.5 h-3.5"></i> Professor Pitch Mode
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- Hero & KPI Banner -->
+        <section id="overview" class="space-y-6">
+            <div class="bg-gradient-to-r from-slate-900 via-slate-800/80 to-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="max-w-3xl space-y-3">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-medium">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                        Novelty: Constrained Audit Budget Optimization ($P(\text{Fraud}) \times \text{Dollars}$)
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                        Healthcare Fraud Detection & <br class="hidden sm:inline"><span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-indigo-400">Audit-Prioritization System</span>
+                    </h1>
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                        Evaluated across <strong>558,211 Medicare claims</strong> and <strong>5,410 healthcare providers</strong>. Instead of stopping at raw classification accuracy, this system ranks healthcare providers to recover the <strong>maximum fraudulent reimbursement</strong> under a real-world fixed 100-audit capacity constraint.
+                    </p>
+                </div>
+
+                <!-- KPI Cards Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mt-8 pt-6 border-t border-slate-800/80">
+                    <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+                        <span class="text-xs text-slate-400 font-medium flex items-center gap-1.5"><i data-lucide="file-text" class="w-3.5 h-3.5 text-teal-400"></i> Total Claims</span>
+                        <p class="text-xl sm:text-2xl font-bold text-white mt-1">558,211</p>
+                        <span class="text-[11px] text-slate-400">40K IP + 518K OP</span>
+                    </div>
+                    <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+                        <span class="text-xs text-slate-400 font-medium flex items-center gap-1.5"><i data-lucide="hospital" class="w-3.5 h-3.5 text-indigo-400"></i> Providers Analyzed</span>
+                        <p class="text-xl sm:text-2xl font-bold text-white mt-1">5,410</p>
+                        <span class="text-[11px] text-emerald-400">9.35% Base Fraud Rate</span>
+                    </div>
+                    <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+                        <span class="text-xs text-slate-400 font-medium flex items-center gap-1.5"><i data-lucide="dollar-sign" class="w-3.5 h-3.5 text-amber-400"></i> Recovered @ 100</span>
+                        <p class="text-xl sm:text-2xl font-bold text-white mt-1">$67.48M</p>
+                        <span class="text-[11px] text-amber-400">of $71.98M Known Fraud</span>
+                    </div>
+                    <div class="bg-slate-950/60 p-4 rounded-xl border border-teal-500/40 bg-teal-950/20">
+                        <span class="text-xs text-teal-300 font-medium flex items-center gap-1.5"><i data-lucide="target" class="w-3.5 h-3.5 text-teal-400"></i> Fraud Capture Rate</span>
+                        <p class="text-xl sm:text-2xl font-bold text-teal-300 mt-1">93.75%</p>
+                        <span class="text-[11px] text-teal-400">vs 9.54% Random (9.8x)</span>
+                    </div>
+                    <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800">
+                        <span class="text-xs text-slate-400 font-medium flex items-center gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Top-100 Precision</span>
+                        <p class="text-xl sm:text-2xl font-bold text-white mt-1">72.0%</p>
+                        <span class="text-[11px] text-slate-400">72 Fraud Caught / 100</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Interactive Audit Budget Simulator (The Core Novelty) -->
+        <section id="simulator" class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                        <i data-lucide="sliders" class="w-6 h-6 text-teal-400"></i>
+                        Interactive Audit Budget Simulator
+                    </h2>
+                    <p class="text-sm text-slate-400 mt-1">
+                        Adjust the audit budget capacity ($K$ providers) to simulate real-world recovery outcomes in real time.
+                    </p>
+                </div>
+                <!-- Budget Slider Control -->
+                <div class="bg-slate-900 border border-slate-800 p-3 rounded-xl flex items-center gap-4 w-full sm:w-80">
+                    <span class="text-xs font-semibold text-slate-300 whitespace-nowrap">Audit Budget ($K$):</span>
+                    <input type="range" id="budgetRange" min="20" max="200" step="10" value="100" class="w-full accent-teal-400 cursor-pointer">
+                    <span id="budgetValue" class="text-sm font-bold text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded-lg border border-teal-500/30">100</span>
+                </div>
+            </div>
+
+            <!-- Dynamic Comparison Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="strategyCards">
+                <!-- Injected via JavaScript -->
+            </div>
+
+            <!-- Chart Showcase -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-800 mb-6 gap-2">
+                    <div>
+                        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                            <i data-lucide="trending-up" class="w-5 h-5 text-indigo-400"></i>
+                            Cumulative Fraud Recovery Curve Comparison
+                        </h3>
+                        <p class="text-xs text-slate-400">Comparing Proposed ML Prioritization against Naive Volume Heuristic and Random Baselines</p>
+                    </div>
+                    <span class="text-xs bg-slate-800 text-slate-300 px-3 py-1 rounded-lg border border-slate-700">Held-Out Test Set (1,082 Providers)</span>
+                </div>
+                <div class="h-80 w-full">
+                    <canvas id="recoveryCurveChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The 4 Syllabus Pillars Deep-Dive -->
+        <section id="syllabus" class="space-y-6">
+            <div class="border-b border-slate-800 pb-3">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                    <i data-lucide="graduation-cap" class="w-6 h-6 text-teal-400"></i>
+                    Syllabus Coverage & Multi-Technique Architecture
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">Four foundational data science techniques combined into one coherent decision pipeline.</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex flex-wrap gap-2 border-b border-slate-800 pb-2" id="techniqueTabs">
+                <button onclick="switchTab('tab-prep')" class="tab-btn px-4 py-2 text-xs font-semibold rounded-lg bg-teal-500/20 text-teal-300 border border-teal-500/40">1. Preprocessing & Leakage Control</button>
+                <button onclick="switchTab('tab-reg')" class="tab-btn px-4 py-2 text-xs font-semibold rounded-lg bg-slate-900 text-slate-400 border border-slate-800 hover:text-white">2. Regression (Overbilling Residuals)</button>
+                <button onclick="switchTab('tab-clust')" class="tab-btn px-4 py-2 text-xs font-semibold rounded-lg bg-slate-900 text-slate-400 border border-slate-800 hover:text-white">3. Clustering (DBSCAN & Hierarchical)</button>
+                <button onclick="switchTab('tab-apriori')" class="tab-btn px-4 py-2 text-xs font-semibold rounded-lg bg-slate-900 text-slate-400 border border-slate-800 hover:text-white">4. Association Rules (In-Fold Apriori)</button>
+            </div>
+
+            <!-- Tab 1: Preprocessing -->
+            <div id="tab-prep" class="tab-content bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Relational Consolidation & Provider-Level Partitioning</h3>
+                        <p class="text-xs text-slate-400 mt-0.5">Joining 4 CMS relational files and rolling up 558,211 receipts into 48 provider behavior indicators.</p>
+                    </div>
+                    <span class="px-2.5 py-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-lg text-xs font-semibold">Strict Provider Split</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 space-y-2">
+                        <span class="text-xs font-bold text-indigo-400 flex items-center gap-1.5"><i data-lucide="database" class="w-4 h-4"></i> Relational Join</span>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Consolidated Inpatient claims, Outpatient claims, and Beneficiary KYC records using <code>BeneID</code> and <code>Provider</code> foreign keys. Imputed missing reimbursement deductibles to \$0.
+                        </p>
+                    </div>
+                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 space-y-2">
+                        <span class="text-xs font-bold text-teal-400 flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4"></i> Leakage Prevention</span>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Split 80/20 strictly by <strong>Provider ID</strong> (4,328 train / 1,082 test). Never split by individual claim, preventing the model from memorizing doctor IDs or clinic identifiers.
+                        </p>
+                    </div>
+                    <div class="p-4 bg-slate-950/60 rounded-xl border border-slate-800 space-y-2">
+                        <span class="text-xs font-bold text-amber-400 flex items-center gap-1.5"><i data-lucide="network" class="w-4 h-4"></i> Physician Overlap</span>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Engineered doctor network features: ratios where the Attending Physician is also the Operating Physician, physician claim overload, and chronic disease prevalence ratios across 11 CMS conditions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Regression -->
+            <div id="tab-reg" class="tab-content hidden bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Technique A: Claim Reimbursement Cost Modeling & Residuals</h3>
+                        <p class="text-xs text-slate-400 mt-0.5">Predicting expected claim amounts and quantifying excessive billing deviations.</p>
+                    </div>
+                    <span class="px-2.5 py-1 bg-teal-500/10 text-teal-400 border border-teal-500/30 rounded-lg text-xs font-semibold">R² = 0.5763</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
+                        <p>
+                            We trained a <code>HistGradientBoostingRegressor</code> on 424,435 training claims to predict the standard reimbursement amount based on patient age, chronic illnesses, inpatient stay duration, and procedure intensity:
+                        </p>
+                        <div class="p-3 bg-slate-950 rounded-lg border border-slate-800 font-mono text-teal-300 text-xs">
+                            Residual_i = Actual_Reimbursed_i - Predicted_Expected_i
+                        </div>
+                        <p>
+                            If a provider consistently logs large positive residuals, they are billing significantly more than patient clinical profiles justify. We aggregate these into <strong>total excess reimbursement</strong> and <strong>positive residual ratio</strong> per provider.
+                        </p>
+                        <div class="grid grid-cols-2 gap-3 pt-2">
+                            <div class="p-3 bg-slate-950 rounded-lg border border-slate-800">
+                                <span class="text-[11px] text-slate-400">Regression RMSE</span>
+                                <p class="text-base font-bold text-white mt-0.5">$2,531.68</p>
+                            </div>
+                            <div class="p-3 bg-slate-950 rounded-lg border border-slate-800">
+                                <span class="text-[11px] text-slate-400">Regression MAE</span>
+                                <p class="text-base font-bold text-white mt-0.5">$695.07</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex flex-col justify-center items-center text-center">
+                        <i data-lucide="scale" class="w-12 h-12 text-teal-400 mb-2"></i>
+                        <h4 class="text-sm font-bold text-white">Overbilling Residual Signal</h4>
+                        <p class="text-xs text-slate-400 mt-1 max-w-sm">
+                            Provides the classifier with a clinical baseline cost expectation. Enabled the model to boost PR-AUC by <strong>+1.61%</strong> over volume-only baseline.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 3: Clustering -->
+            <div id="tab-clust" class="tab-content hidden bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Technique B: Unsupervised Clustering & Anomaly Detection</h3>
+                        <p class="text-xs text-slate-400 mt-0.5">Hierarchical typology discovering clinic operational scale and DBSCAN density outlier detection.</p>
+                    </div>
+                    <span class="px-2.5 py-1 bg-indigo-500/10 text-indigo-400 border border-indigo-500/30 rounded-lg text-xs font-semibold">No Labels Used</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
+                        <p>
+                            <strong>Hierarchical Clustering (Ward linkage):</strong> Discovered 4 distinct operational archetypes (e.g. small outpatient practices, high-volume diagnostic centers, large inpatient hospitals), giving the model normalized expectations per tier.
+                        </p>
+                        <p>
+                            <strong>DBSCAN Density Anomaly Detection:</strong> Evaluated multi-dimensional behavioral density. Isolated <strong>91 anomalous providers (2.1%)</strong> sitting outside standard density clusters (flagged as <code>dbscan_outlier_flag = 1</code>).
+                        </p>
+                        <div class="p-3 bg-slate-950 rounded-lg border border-slate-800">
+                            <span class="text-xs font-semibold text-slate-200">Inductive Core Assignment:</span>
+                            <p class="text-[11px] text-slate-400 mt-1">Test providers are evaluated against fitted training core samples using nearest neighbors, guaranteeing zero test set contamination.</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-950 p-2 rounded-xl border border-slate-800 flex items-center justify-center">
+                        <img src="/figures/clustering_outliers_tsne.png" alt="Clustering PCA" class="rounded-lg max-h-64 object-contain">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 4: Apriori -->
+            <div id="tab-apriori" class="tab-content hidden bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+                <div class="flex items-start justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Technique C: In-Fold Apriori Association Rule Mining</h3>
+                        <p class="text-xs text-slate-400 mt-0.5">Treating diagnostic and procedure codes as transaction baskets to flag fraudulent treatment combinations.</p>
+                    </div>
+                    <span class="px-2.5 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/30 rounded-lg text-xs font-semibold">In-Fold Only</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
+                        <p>
+                            We treated claim diagnosis codes (<code>D_*</code>) and procedure codes (<code>P_*</code>) as transaction baskets.
+                            To prevent data leakage, rules were mined <strong>strictly within the training fold</strong> (153K fraud claims vs 271K legitimate claims).
+                        </p>
+                        <p>
+                            We isolated 12 statistically significant combinations with an <strong>Enrichment Ratio (Lift) &ge; 1.8x</strong> in fraudulent claims compared to legitimate claims.
+                        </p>
+                        <div class="p-3 bg-slate-950 rounded-lg border border-slate-800 space-y-1">
+                            <span class="text-xs font-semibold text-teal-300">Top Discovered Combination:</span>
+                            <p class="font-mono text-xs text-slate-200">D_2851 + D_4019 (Anemia + Hypertension)</p>
+                            <span class="text-[11px] text-amber-400">Enrichment: 2.52x higher occurrence in fraudulent providers</span>
+                        </div>
+                    </div>
+                    <div class="space-y-3 bg-slate-950 p-4 rounded-xl border border-slate-800">
+                        <h4 class="text-xs font-bold text-white">Derived Provider Features:</h4>
+                        <ul class="text-xs text-slate-400 space-y-2 list-disc list-inside">
+                            <li><code>suspicious_code_claim_count</code>: Total claims containing flagged combinations.</li>
+                            <li><code>suspicious_code_claim_ratio</code>: Proportion of claims with flagged combinations.</li>
+                            <li><code>suspicious_combo_variety</code>: Number of distinct suspicious pairs utilized.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Model Benchmark & Ablation Study -->
+        <section id="benchmark" class="space-y-6">
+            <div class="border-b border-slate-800 pb-3">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                    <i data-lucide="bar-chart-2" class="w-6 h-6 text-indigo-400"></i>
+                    Classifier Benchmark & Feature Ablation
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">Rigorous comparison of 4 supervised learning architectures on the held-out test partition.</p>
+            </div>
+
+            <!-- Model Benchmark Table -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+                <div class="p-4 bg-slate-900/80 border-b border-slate-800 flex items-center justify-between">
+                    <span class="text-sm font-bold text-white">Held-Out Test Set Performance (1,082 Providers | 101 Fraudulent)</span>
+                    <span class="text-xs text-slate-400">Ranked by PR-AUC (Average Precision)</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs" id="benchmarkTable">
+                        <thead class="bg-slate-950 text-slate-400 font-semibold border-b border-slate-800">
+                            <tr>
+                                <th class="p-3">Model</th>
+                                <th class="p-3">PR-AUC (Avg Prec)</th>
+                                <th class="p-3">ROC-AUC</th>
+                                <th class="p-3">F1 Score</th>
+                                <th class="p-3">Precision</th>
+                                <th class="p-3">Recall</th>
+                                <th class="p-3">Confusion Matrix (TP / FP / FN)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800 text-slate-300">
+                            <!-- Injected via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Plots Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+                    <span class="text-xs font-bold text-slate-300 mb-2 block flex items-center gap-1.5"><i data-lucide="line-chart" class="w-4 h-4 text-teal-400"></i> ROC and Precision-Recall Curves</span>
+                    <img src="/figures/roc_pr_curves.png" alt="ROC & PR Curves" class="rounded-xl w-full object-contain">
+                </div>
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+                    <span class="text-xs font-bold text-slate-300 mb-2 block flex items-center gap-1.5"><i data-lucide="bar-chart" class="w-4 h-4 text-indigo-400"></i> Top 15 Predictive Features</span>
+                    <img src="/figures/feature_importance.png" alt="Feature Importance" class="rounded-xl w-full object-contain">
+                </div>
+            </div>
+
+            <!-- Ablation Study Table -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+                <h3 class="text-base font-bold text-white flex items-center gap-2">
+                    <i data-lucide="layers" class="w-5 h-5 text-amber-400"></i>
+                    Technique Ablation Study (Incremental Impact)
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs" id="ablationTable">
+                        <thead class="bg-slate-950 text-slate-400 font-semibold border-b border-slate-800">
+                            <tr>
+                                <th class="p-3">Pipeline Stage</th>
+                                <th class="p-3">Features</th>
+                                <th class="p-3">PR-AUC</th>
+                                <th class="p-3">ROC-AUC</th>
+                                <th class="p-3">Top-100 Fraud Caught</th>
+                                <th class="p-3">Top-100 Dollars Recovered</th>
+                                <th class="p-3">Dollar Capture Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800 text-slate-300">
+                            <!-- Injected via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Actionable Top 100 Audit Manifest -->
+        <section id="manifest" class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-3">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                        <i data-lucide="list-ordered" class="w-6 h-6 text-teal-400"></i>
+                        Actionable Top 100 Audit Manifest
+                    </h2>
+                    <p class="text-sm text-slate-400 mt-1">The prioritized investigator checklist ranked by Expected Fraud Recovery ($P(\text{Fraud}) \times \text{Reimbursed}$).</p>
+                </div>
+                <!-- Search & Filters -->
+                <div class="flex items-center gap-3">
+                    <div class="relative">
+                        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-3"></i>
+                        <input type="text" id="manifestSearch" placeholder="Search Provider ID..." class="bg-slate-900 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-teal-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table Container -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+                <div class="overflow-x-auto max-h-[500px] overflow-y-auto">
+                    <table class="w-full text-left text-xs" id="manifestTable">
+                        <thead class="bg-slate-950 text-slate-400 font-semibold sticky top-0 z-10 border-b border-slate-800">
+                            <tr>
+                                <th class="p-3">Rank</th>
+                                <th class="p-3">Provider ID</th>
+                                <th class="p-3">Fraud Probability</th>
+                                <th class="p-3">Total Reimbursed</th>
+                                <th class="p-3">Expected Fraud Dollars</th>
+                                <th class="p-3">Claims Filed</th>
+                                <th class="p-3">Patients Seen</th>
+                                <th class="p-3">Primary Anomaly Drivers</th>
+                                <th class="p-3">Retrospective Label</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800 text-slate-300" id="manifestBody">
+                            <!-- Injected via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Interactive Provider Risk Calculator -->
+        <section id="calculator" class="space-y-6">
+            <div class="border-b border-slate-800 pb-3">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                    <i data-lucide="calculator" class="w-6 h-6 text-teal-400"></i>
+                    Interactive Provider Risk Calculator
+                </h2>
+                <p class="text-sm text-slate-400 mt-1">Test real-time model inference on custom provider metrics during your presentation.</p>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Input Controls -->
+                <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                    <div>
+                        <label class="font-medium text-slate-300 block mb-1">Total Claims Filed</label>
+                        <input type="number" id="calcClaims" value="1200" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-white focus:border-teal-500">
+                    </div>
+                    <div>
+                        <label class="font-medium text-slate-300 block mb-1">Total Reimbursement ($)</label>
+                        <input type="number" id="calcReimbursed" value="2500000" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-white focus:border-teal-500">
+                    </div>
+                    <div>
+                        <label class="font-medium text-slate-300 block mb-1">Unique Beneficiaries (Patients)</label>
+                        <input type="number" id="calcPatients" value="650" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-white focus:border-teal-500">
+                    </div>
+                    <div>
+                        <label class="font-medium text-slate-300 block mb-1">Mean Claim Residual ($)</label>
+                        <input type="number" id="calcResidual" value="85" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-white focus:border-teal-500">
+                    </div>
+                    <div>
+                        <label class="font-medium text-slate-300 block mb-1">DBSCAN Density Outlier</label>
+                        <select id="calcDbscan" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-white focus:border-teal-500">
+                            <option value="1">Yes (Anomalous Cluster)</option>
+                            <option value="0">No (Standard Core)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-medium text-slate-300 block mb-1">Suspicious Code Combinations Count</label>
+                        <input type="number" id="calcCodes" value="35" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-2.5 text-white focus:border-teal-500">
+                    </div>
+                    <div class="sm:col-span-2 pt-2">
+                        <button onclick="calculateRisk()" class="w-full py-3 bg-gradient-to-r from-teal-500 to-indigo-600 hover:from-teal-600 hover:to-indigo-700 text-white font-bold rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                            <i data-lucide="zap" class="w-4 h-4"></i> Run Risk & Expected Recovery Inference
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Prediction Output Card -->
+                <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 flex flex-col justify-between" id="calcResultCard">
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-slate-400 font-bold">Inference Results</span>
+                        <div class="mt-4">
+                            <span class="text-xs text-slate-400">Predicted Fraud Probability</span>
+                            <p class="text-3xl font-extrabold text-teal-400 mt-1" id="resProb">98.8%</p>
+                        </div>
+                        <div class="mt-4">
+                            <span class="text-xs text-slate-400">Expected Fraud Recovery</span>
+                            <p class="text-2xl font-bold text-white mt-1" id="resDollars">$2,470,000.00</p>
+                        </div>
+                        <div class="mt-4">
+                            <span class="text-xs text-slate-400">Audit Priority Tier</span>
+                            <p class="text-xs font-semibold text-rose-400 mt-1 bg-rose-500/10 border border-rose-500/30 p-2 rounded-lg" id="resTier">
+                                Severe Critical (Immediate Audit Recommended)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 mt-6">
+                        <span class="text-[11px] text-slate-500">Model: Serialized Random Forest / XGBoost Inference</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Professor Presentation Mode / Slide Deck -->
+        <section id="slides" class="space-y-6">
+            <div class="border-b border-slate-800 pb-3 flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                        <i data-lucide="presentation" class="w-6 h-6 text-teal-400"></i>
+                        Professor Pitch Deck (Interactive Slides)
+                    </h2>
+                    <p class="text-sm text-slate-400 mt-1">Use these structured slides to deliver a flawless, high-impact viva presentation.</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="prevSlide()" class="p-2 bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800 text-slate-300"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
+                    <span id="slideIndicator" class="text-xs font-bold text-teal-400 px-3">Slide 1 / 5</span>
+                    <button onclick="nextSlide()" class="p-2 bg-slate-900 border border-slate-800 rounded-lg hover:bg-slate-800 text-slate-300"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+                </div>
+            </div>
+
+            <!-- Slide Containers -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 min-h-[360px] flex flex-col justify-center shadow-2xl relative" id="slideBox">
+                <!-- Slide content dynamically rendered -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+        <p>Healthcare Provider Fraud Detection & Audit Prioritization System &copy; 2026</p>
+        <p class="mt-1">558K Claims | Multi-Technique Syllabus Architecture | Published Research Pipeline</p>
+    </footer>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

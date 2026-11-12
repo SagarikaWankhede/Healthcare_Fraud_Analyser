@@ -153,6 +153,12 @@ Healthcare_Fraud_Analyser/
 │   ├── figures/                  # Publication-ready plots (.png)
 │   ├── reports/                  # Detailed CSV audit manifest & benchmark tables
 │   └── models/                   # Serialized best trained model (.joblib)
+├── templates/
+│   └── index.html                # Interactive web dashboard & presentation deck
+├── static/
+│   ├── css/custom.css            # Custom dashboard styling
+│   └── js/dashboard.js           # Client-side dynamic charts & simulator
+├── app.py                        # Interactive Flask dashboard & inference API
 ├── requirements.txt              # Pinned Python package dependencies
 ├── run_pipeline.py               # Master end-to-end execution script
 └── README.md                     # Comprehensive project documentation
@@ -168,6 +174,27 @@ git clone https://github.com/SagarikaWankhede/Healthcare_Fraud_Analyser.git
 cd Healthcare_Fraud_Analyser
 
 # Create virtual environment
+python -m venv venv
+# Windows:
+.\venv\Scripts\activate
+# Linux/macOS:
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### 2. Launch the Interactive Web Presentation Dashboard
+```bash
+python app.py
+```
+*Open [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser. The dashboard includes live interactive audit budget sliders, dynamic Chart.js curves, syllabus deep-dives, searchable top 100 audit manifest, real-time risk inference calculator, and an integrated full-screen presentation slide deck for professors.*
+
+### 3. (Optional) Re-run the Master Data Science Pipeline
+```bash
+python run_pipeline.py
+```
+*The full pipeline will run data loading, feature engineering, regression, clustering, Apriori mining, classifier benchmarking, audit simulation, and ablation in ~35 seconds.*
 python -m venv venv
 # Windows:
 .\venv\Scripts\activate
