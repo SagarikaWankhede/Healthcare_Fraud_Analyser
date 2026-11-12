@@ -1,0 +1,5 @@
+Strategy,Fraud Providers Caught (of 101),Precision @ K,Fraud Dollars Recovered,Fraud Dollar Capture Rate,Total Audited Payout,Audit Efficiency Yield
+Proposed ML System (Expected Recovery),72 / 101,72.0%,"$67,478,710.00",93.75%,"$82,160,090.00",82.1%
+Highest Billers First (Naive Business Heuristic),69 / 101,69.0%,"$67,143,690.00",93.28%,"$83,269,890.00",80.6%
+Pure Fraud Risk Only (Probability-Based),71 / 101,71.0%,"$66,199,110.00",91.97%,"$79,560,200.00",83.2%
+Random Selection (Chance Baseline),9.3 / 101,9.3%,"$6,865,598.40",9.54%,"$11,614,320.70",59.1%

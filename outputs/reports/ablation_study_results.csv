@@ -1,0 +1,5 @@
+Pipeline Configuration,Num Features,PR-AUC,ROC-AUC,Top-100 Fraud Providers Caught,Top-100 Fraud Dollars Recovered,Top-100 Dollar Capture Rate
+1. Base Billing & Demographics Only,48,0.7537818405722764,0.9659874244305164,72,"$67,459,740.00",93.72%
+2. Base + Regression Overbilling Residuals,54,0.7699377518908544,0.9673903170133527,71,"$67,218,240.00",93.39%
+3. Base + Regression + Clustering (DBSCAN/Hierarchical),59,0.769440836602874,0.9661791867260121,71,"$67,218,240.00",93.39%
+4. Full Pipeline (+ Apriori Suspicious Codes),62,0.7742306919987034,0.9673903170133527,72,"$67,459,740.00",93.72%
