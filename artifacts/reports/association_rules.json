@@ -1,0 +1,696 @@
+{
+ "n_transactions": 424435,
+ "n_items": 310,
+ "n_frequent_itemsets": 464,
+ "n_candidate_combinations": 154,
+ "n_selected_rules": 27,
+ "inner_fold_rule_counts": [
+  36,
+  40,
+  9
+ ],
+ "params": {
+  "min_support": 0.0015,
+  "max_len": 3,
+  "min_claims": 50,
+  "min_providers": 15,
+  "min_fraud_providers": 5,
+  "min_lift": 1.3,
+  "top_k": 40
+ },
+ "fraud_rules": [
+  {
+   "itemset": [
+    "D_4019",
+    "D_49121"
+   ],
+   "claims": 676,
+   "providers": 434,
+   "fraud_labelled_providers": 181,
+   "support": 0.0008764592929423823,
+   "confidence": 0.5502958579881657,
+   "lift": 1.5256102215943403
+  },
+  {
+   "itemset": [
+    "D_4280",
+    "D_5849"
+   ],
+   "claims": 679,
+   "providers": 411,
+   "fraud_labelled_providers": 174,
+   "support": 0.0008788153663105069,
+   "confidence": 0.5493372606774669,
+   "lift": 1.5229526586954636
+  },
+  {
+   "itemset": [
+    "D_41401",
+    "D_5990"
+   ],
+   "claims": 642,
+   "providers": 425,
+   "fraud_labelled_providers": 173,
+   "support": 0.000796352798426143,
+   "confidence": 0.5264797507788161,
+   "lift": 1.4595837449822782
+  },
+  {
+   "itemset": [
+    "D_4019",
+    "D_486"
+   ],
+   "claims": 905,
+   "providers": 552,
+   "fraud_labelled_providers": 203,
+   "support": 0.0011214909232273493,
+   "confidence": 0.5259668508287293,
+   "lift": 1.4581618091360435
+  },
+  {
+   "itemset": [
+    "D_41401",
+    "D_4280"
+   ],
+   "claims": 1153,
+   "providers": 673,
+   "fraud_labelled_providers": 241,
+   "support": 0.0014160000942429348,
+   "confidence": 0.5212489158716392,
+   "lift": 1.445082063593949
+  },
+  {
+   "itemset": [
+    "D_2761",
+    "D_4019"
+   ],
+   "claims": 850,
+   "providers": 548,
+   "fraud_labelled_providers": 216,
+   "support": 0.0010390283553429853,
+   "confidence": 0.5188235294117647,
+   "lift": 1.438358054461791
+  },
+  {
+   "itemset": [
+    "D_4280",
+    "D_5990"
+   ],
+   "claims": 751,
+   "providers": 500,
+   "fraud_labelled_providers": 201,
+   "support": 0.0009141564668323772,
+   "confidence": 0.5166444740346205,
+   "lift": 1.432316960187622
+  },
+  {
+   "itemset": [
+    "D_4280",
+    "D_486"
+   ],
+   "claims": 651,
+   "providers": 410,
+   "fraud_labelled_providers": 163,
+   "support": 0.0007869285049536442,
+   "confidence": 0.5130568356374808,
+   "lift": 1.4223707871779419
+  },
+  {
+   "itemset": [
+    "D_27651",
+    "D_4019"
+   ],
+   "claims": 981,
+   "providers": 613,
+   "fraud_labelled_providers": 219,
+   "support": 0.0011709684639579676,
+   "confidence": 0.5066258919469928,
+   "lift": 1.4045419896569598
+  },
+  {
+   "itemset": [
+    "D_4019",
+    "D_5849"
+   ],
+   "claims": 771,
+   "providers": 509,
+   "fraud_labelled_providers": 192,
+   "support": 0.0009118003934642524,
+   "confidence": 0.5019455252918288,
+   "lift": 1.391566396426016
+  },
+  {
+   "itemset": [
+    "D_41400",
+    "D_4280"
+   ],
+   "claims": 741,
+   "providers": 520,
+   "fraud_labelled_providers": 205,
+   "support": 0.0008741032195742575,
+   "confidence": 0.5006747638326585,
+   "lift": 1.3880434066684593
+  },
+  {
+   "itemset": [
+    "D_42731",
+    "D_4280"
+   ],
+   "claims": 1341,
+   "providers": 758,
+   "fraud_labelled_providers": 250,
+   "support": 0.0015809252300116627,
+   "confidence": 0.5003728560775541,
+   "lift": 1.3872064140753297
+  },
+  {
+   "itemset": [
+    "D_2724",
+    "D_5990"
+   ],
+   "claims": 945,
+   "providers": 598,
+   "fraud_labelled_providers": 216,
+   "support": 0.0011120666297548506,
+   "confidence": 0.49947089947089945,
+   "lift": 1.3847058787749595
+  },
+  {
+   "itemset": [
+    "D_41401",
+    "D_53081"
+   ],
+   "claims": 917,
+   "providers": 594,
+   "fraud_labelled_providers": 217,
+   "support": 0.001079081602601105,
+   "confidence": 0.4994547437295529,
+   "lift": 1.384661089478842
+  },
+  {
+   "itemset": [
+    "D_4019",
+    "D_40390"
+   ],
+   "claims": 1132,
+   "providers": 675,
+   "fraud_labelled_providers": 231,
+   "support": 0.0013264693062541967,
+   "confidence": 0.49734982332155475,
+   "lift": 1.3788255229495487
+  },
+  {
+   "itemset": [
+    "D_42731",
+    "D_5990"
+   ],
+   "claims": 770,
+   "providers": 517,
+   "fraud_labelled_providers": 188,
+   "support": 0.0008905957331511303,
+   "confidence": 0.4909090909090909,
+   "lift": 1.3609695877096724
+  },
+  {
+   "itemset": [
+    "D_4280",
+    "D_53081"
+   ],
+   "claims": 775,
+   "providers": 543,
+   "fraud_labelled_providers": 203,
+   "support": 0.0008953078798873797,
+   "confidence": 0.49032258064516127,
+   "lift": 1.3593435786443084
+  },
+  {
+   "itemset": [
+    "D_41401",
+    "D_42731"
+   ],
+   "claims": 1181,
+   "providers": 690,
+   "fraud_labelled_providers": 235,
+   "support": 0.0013570982600398177,
+   "confidence": 0.4877222692633362,
+   "lift": 1.3521346171995616
+  },
+  {
+   "itemset": [
+    "D_4280",
+    "D_496"
+   ],
+   "claims": 750,
+   "providers": 510,
+   "fraud_labelled_providers": 190,
+   "support": 0.0008599667793655094,
+   "confidence": 0.4866666666666667,
+   "lift": 1.3492081221368728
+  },
+  {
+   "itemset": [
+    "D_25000",
+    "D_5990"
+   ],
+   "claims": 1091,
+   "providers": 676,
+   "fraud_labelled_providers": 233,
+   "support": 0.0012463628117379574,
+   "confidence": 0.4848762603116407,
+   "lift": 1.3442444972133252
+  },
+  {
+   "itemset": [
+    "D_4019",
+    "D_5990"
+   ],
+   "claims": 2064,
+   "providers": 1019,
+   "fraud_labelled_providers": 288,
+   "support": 0.0023466490746521847,
+   "confidence": 0.48255813953488375,
+   "lift": 1.3378178656103907
+  },
+  {
+   "itemset": [
+    "D_2449",
+    "D_4280"
+   ],
+   "claims": 752,
+   "providers": 508,
+   "fraud_labelled_providers": 190,
+   "support": 0.0008528985592611354,
+   "confidence": 0.48138297872340424,
+   "lift": 1.3345599138740927
+  },
+  {
+   "itemset": [
+    "D_25000",
+    "D_41401"
+   ],
+   "claims": 1727,
+   "providers": 922,
+   "fraud_labelled_providers": 291,
+   "support": 0.0019531848221753627,
+   "confidence": 0.48002316155182395,
+   "lift": 1.3307900309168652
+  },
+  {
+   "itemset": [
+    "D_41401",
+    "D_496"
+   ],
+   "claims": 822,
+   "providers": 545,
+   "fraud_labelled_providers": 193,
+   "support": 0.0009212246869367512,
+   "confidence": 0.47566909975669097,
+   "lift": 1.3187190674820448
+  },
+  {
+   "itemset": [
+    "D_3310",
+    "D_4019"
+   ],
+   "claims": 690,
+   "providers": 481,
+   "fraud_labelled_providers": 181,
+   "support": 0.0007680799180086468,
+   "confidence": 0.47246376811594204,
+   "lift": 1.3098327808714132
+  },
+  {
+   "itemset": [
+    "D_2724",
+    "D_41401"
+   ],
+   "claims": 1863,
+   "providers": 959,
+   "fraud_labelled_providers": 272,
+   "support": 0.002068632417213472,
+   "confidence": 0.4712828770799785,
+   "lift": 1.3065589429733022
+  },
+  {
+   "itemset": [
+    "D_2449",
+    "D_41401"
+   ],
+   "claims": 809,
+   "providers": 557,
+   "fraud_labelled_providers": 199,
+   "support": 0.0008953078798873797,
+   "confidence": 0.46971569839307786,
+   "lift": 1.3022141822612348
+  }
+ ],
+ "code_rules": [
+  {
+   "antecedent": [
+    "D_2809",
+    "D_28521"
+   ],
+   "consequent": [
+    "D_58881"
+   ],
+   "support": 0.003920506084559473,
+   "confidence": 0.5873632192022591,
+   "lift": 44.805447149912084
+  },
+  {
+   "antecedent": [
+    "D_58881"
+   ],
+   "consequent": [
+    "D_2809",
+    "D_28521"
+   ],
+   "support": 0.003920506084559473,
+   "confidence": 0.29906542056074764,
+   "lift": 44.80544714991208
+  },
+  {
+   "antecedent": [
+    "D_2809",
+    "D_58881"
+   ],
+   "consequent": [
+    "D_28521"
+   ],
+   "support": 0.003920506084559473,
+   "confidence": 0.6916043225270158,
+   "lift": 39.953869692630185
+  },
+  {
+   "antecedent": [
+    "D_28521"
+   ],
+   "consequent": [
+    "D_2809",
+    "D_58881"
+   ],
+   "support": 0.003920506084559473,
+   "confidence": 0.22648700149720977,
+   "lift": 39.953869692630185
+  },
+  {
+   "antecedent": [
+    "D_28521",
+    "D_58881"
+   ],
+   "consequent": [
+    "D_2809"
+   ],
+   "support": 0.003920506084559473,
+   "confidence": 0.5110565110565111,
+   "lift": 35.63500415151475
+  },
+  {
+   "antecedent": [
+    "D_2809"
+   ],
+   "consequent": [
+    "D_28521",
+    "D_58881"
+   ],
+   "support": 0.003920506084559473,
+   "confidence": 0.27336947593231475,
+   "lift": 35.63500415151475
+  },
+  {
+   "antecedent": [
+    "D_28521"
+   ],
+   "consequent": [
+    "D_58881"
+   ],
+   "support": 0.007671374886613969,
+   "confidence": 0.44317408466040564,
+   "lift": 33.80636100338592
+  },
+  {
+   "antecedent": [
+    "D_58881"
+   ],
+   "consequent": [
+    "D_28521"
+   ],
+   "support": 0.007671374886613969,
+   "confidence": 0.5851905104241553,
+   "lift": 33.80636100338592
+  },
+  {
+   "antecedent": [
+    "D_2809"
+   ],
+   "consequent": [
+    "D_58881"
+   ],
+   "support": 0.005668712523707989,
+   "confidence": 0.3952686052242484,
+   "lift": 30.152018414513634
+  },
+  {
+   "antecedent": [
+    "D_58881"
+   ],
+   "consequent": [
+    "D_2809"
+   ],
+   "support": 0.005668712523707989,
+   "confidence": 0.43242271746944644,
+   "lift": 30.152018414513634
+  },
+  {
+   "antecedent": [
+    "D_28521"
+   ],
+   "consequent": [
+    "D_2809"
+   ],
+   "support": 0.006674755851897228,
+   "confidence": 0.3855995644480741,
+   "lift": 26.887128492938775
+  },
+  {
+   "antecedent": [
+    "D_2809"
+   ],
+   "consequent": [
+    "D_28521"
+   ],
+   "support": 0.006674755851897228,
+   "confidence": 0.4654181041563989,
+   "lift": 26.887128492938775
+  },
+  {
+   "antecedent": [
+    "D_5849"
+   ],
+   "consequent": [
+    "D_4280"
+   ],
+   "support": 0.00159977381695666,
+   "confidence": 0.1828709938055481,
+   "lift": 6.569904372427443
+  },
+  {
+   "antecedent": [
+    "D_4280"
+   ],
+   "consequent": [
+    "D_5849"
+   ],
+   "support": 0.00159977381695666,
+   "confidence": 0.057474183172507194,
+   "lift": 6.569904372427442
+  },
+  {
+   "antecedent": [
+    "D_4280"
+   ],
+   "consequent": [
+    "D_486"
+   ],
+   "support": 0.001533803762649169,
+   "confidence": 0.05510411376333164,
+   "lift": 6.360651217062731
+  },
+  {
+   "antecedent": [
+    "D_486"
+   ],
+   "consequent": [
+    "D_4280"
+   ],
+   "support": 0.001533803762649169,
+   "confidence": 0.17704650530323632,
+   "lift": 6.360651217062731
+  },
+  {
+   "antecedent": [
+    "D_41401"
+   ],
+   "consequent": [
+    "D_4280"
+   ],
+   "support": 0.00271655259344776,
+   "confidence": 0.10593531789783169,
+   "lift": 3.8058791816460293
+  },
+  {
+   "antecedent": [
+    "D_4280"
+   ],
+   "consequent": [
+    "D_41401"
+   ],
+   "support": 0.00271655259344776,
+   "confidence": 0.09759607245640765,
+   "lift": 3.805879181646029
+  },
+  {
+   "antecedent": [
+    "D_4011"
+   ],
+   "consequent": [
+    "D_2722"
+   ],
+   "support": 0.0016162663305335327,
+   "confidence": 0.038020284875020786,
+   "lift": 3.6076770871740327
+  },
+  {
+   "antecedent": [
+    "D_2722"
+   ],
+   "consequent": [
+    "D_4011"
+   ],
+   "support": 0.0016162663305335327,
+   "confidence": 0.15336463223787167,
+   "lift": 3.607677087174032
+  },
+  {
+   "antecedent": [
+    "D_41401"
+   ],
+   "consequent": [
+    "D_2724",
+    "D_4019"
+   ],
+   "support": 0.0016845924582091487,
+   "confidence": 0.06569276001470048,
+   "lift": 3.469674788058661
+  },
+  {
+   "antecedent": [
+    "D_2724",
+    "D_4019"
+   ],
+   "consequent": [
+    "D_41401"
+   ],
+   "support": 0.0016845924582091487,
+   "confidence": 0.08897461423593828,
+   "lift": 3.4696747880586605
+  },
+  {
+   "antecedent": [
+    "D_4280"
+   ],
+   "consequent": [
+    "D_5990"
+   ],
+   "support": 0.0017694110994616373,
+   "confidence": 0.06356864736753005,
+   "lift": 3.3429263840215118
+  },
+  {
+   "antecedent": [
+    "D_5990"
+   ],
+   "consequent": [
+    "D_4280"
+   ],
+   "support": 0.0017694110994616373,
+   "confidence": 0.09304918845248421,
+   "lift": 3.3429263840215113
+  },
+  {
+   "antecedent": [
+    "D_4019",
+    "D_41401"
+   ],
+   "consequent": [
+    "D_2724"
+   ],
+   "support": 0.0016845924582091487,
+   "confidence": 0.212481426448737,
+   "lift": 3.3145118980767276
+  },
+  {
+   "antecedent": [
+    "D_2724"
+   ],
+   "consequent": [
+    "D_4019",
+    "D_41401"
+   ],
+   "support": 0.0016845924582091487,
+   "confidence": 0.026278069756330624,
+   "lift": 3.3145118980767276
+  },
+  {
+   "antecedent": [
+    "D_42731"
+   ],
+   "consequent": [
+    "D_V5861"
+   ],
+   "support": 0.004212659182206934,
+   "confidence": 0.11598339387649195,
+   "lift": 3.2489052125111444
+  },
+  {
+   "antecedent": [
+    "D_V5861"
+   ],
+   "consequent": [
+    "D_42731"
+   ],
+   "support": 0.004212659182206934,
+   "confidence": 0.1180042238648363,
+   "lift": 3.248905212511144
+  },
+  {
+   "antecedent": [
+    "D_53081"
+   ],
+   "consequent": [
+    "D_41401"
+   ],
+   "support": 0.002160519278570335,
+   "confidence": 0.08036105512225047,
+   "lift": 3.1337784298798583
+  },
+  {
+   "antecedent": [
+    "D_41401"
+   ],
+   "consequent": [
+    "D_53081"
+   ],
+   "support": 0.002160519278570335,
+   "confidence": 0.0842521131936788,
+   "lift": 3.133778429879858
+  }
+ ],
+ "fold_rule_counts": [
+  40,
+  25,
+  27,
+  27,
+  22
+ ]
+}

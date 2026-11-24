@@ -1,0 +1,4 @@
+-r requirements.txt
+pytest>=8
+playwright>=1.45   # browser tests (uses an installed Edge/Chrome, or `playwright install chromium`)
+psutil>=5.9        # optional: memory diagnostics in training logs

@@ -1,0 +1,97 @@
+[
+ {
+  "check": "Development and test providers are disjoint",
+  "passed": true,
+  "detail": "4328 vs 1082 providers, overlap=0"
+ },
+ {
+  "check": "Every claim belongs to exactly one partition",
+  "passed": true,
+  "detail": "424,435 development + 133,776 test = 558,211 claims"
+ },
+ {
+  "check": "Fold 1: training and validation providers are disjoint",
+  "passed": true,
+  "detail": "3462 vs 866 providers, overlap=0"
+ },
+ {
+  "check": "Fold 1: association rules mined from training-fold providers only",
+  "passed": true,
+  "detail": "3462 providers, 40 rules"
+ },
+ {
+  "check": "Fold 1: regression, clustering and scaling fitted on training fold only",
+  "passed": true,
+  "detail": "fitted on 3462 providers"
+ },
+ {
+  "check": "Fold 2: training and validation providers are disjoint",
+  "passed": true,
+  "detail": "3462 vs 866 providers, overlap=0"
+ },
+ {
+  "check": "Fold 2: association rules mined from training-fold providers only",
+  "passed": true,
+  "detail": "3462 providers, 25 rules"
+ },
+ {
+  "check": "Fold 2: regression, clustering and scaling fitted on training fold only",
+  "passed": true,
+  "detail": "fitted on 3462 providers"
+ },
+ {
+  "check": "Fold 3: training and validation providers are disjoint",
+  "passed": true,
+  "detail": "3462 vs 866 providers, overlap=0"
+ },
+ {
+  "check": "Fold 3: association rules mined from training-fold providers only",
+  "passed": true,
+  "detail": "3462 providers, 27 rules"
+ },
+ {
+  "check": "Fold 3: regression, clustering and scaling fitted on training fold only",
+  "passed": true,
+  "detail": "fitted on 3462 providers"
+ },
+ {
+  "check": "Fold 4: training and validation providers are disjoint",
+  "passed": true,
+  "detail": "3463 vs 865 providers, overlap=0"
+ },
+ {
+  "check": "Fold 4: association rules mined from training-fold providers only",
+  "passed": true,
+  "detail": "3463 providers, 27 rules"
+ },
+ {
+  "check": "Fold 4: regression, clustering and scaling fitted on training fold only",
+  "passed": true,
+  "detail": "fitted on 3463 providers"
+ },
+ {
+  "check": "Fold 5: training and validation providers are disjoint",
+  "passed": true,
+  "detail": "3463 vs 865 providers, overlap=0"
+ },
+ {
+  "check": "Fold 5: association rules mined from training-fold providers only",
+  "passed": true,
+  "detail": "3463 providers, 22 rules"
+ },
+ {
+  "check": "Fold 5: regression, clustering and scaling fitted on training fold only",
+  "passed": true,
+  "detail": "fitted on 3463 providers"
+ },
+ {
+  "check": "Final feature pipeline fitted on development providers only",
+  "passed": true,
+  "detail": "4328 providers"
+ },
+ {
+  "check": "Final association rules mined without any test provider",
+  "passed": true,
+  "detail": "27 rules"
+ }
+]

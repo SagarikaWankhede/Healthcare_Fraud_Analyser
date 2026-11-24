@@ -1,0 +1,476 @@
+{
+ "features": [
+  {
+   "feature": "total_claims",
+   "label": "Total claims",
+   "group": "billing",
+   "kind": "count",
+   "derived": false
+  },
+  {
+   "feature": "inpatient_claims",
+   "label": "Inpatient claims",
+   "group": "billing",
+   "kind": "count",
+   "derived": false
+  },
+  {
+   "feature": "total_reimbursed",
+   "label": "Total reimbursement",
+   "group": "billing",
+   "kind": "amount",
+   "derived": false
+  },
+  {
+   "feature": "median_reimbursed",
+   "label": "Median reimbursement per claim",
+   "group": "billing",
+   "kind": "amount",
+   "derived": false
+  },
+  {
+   "feature": "std_reimbursed",
+   "label": "Std. dev. of claim reimbursement",
+   "group": "billing",
+   "kind": "amount",
+   "derived": false
+  },
+  {
+   "feature": "max_reimbursed",
+   "label": "Largest single claim",
+   "group": "billing",
+   "kind": "amount",
+   "derived": false
+  },
+  {
+   "feature": "zero_reimbursement_ratio",
+   "label": "Share of $0 claims",
+   "group": "billing",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "inpatient_mean_reimbursed",
+   "label": "Mean inpatient claim",
+   "group": "billing",
+   "kind": "amount",
+   "derived": false
+  },
+  {
+   "feature": "outpatient_mean_reimbursed",
+   "label": "Mean outpatient claim",
+   "group": "billing",
+   "kind": "amount",
+   "derived": false
+  },
+  {
+   "feature": "total_deductible_paid",
+   "label": "Total deductible paid",
+   "group": "billing",
+   "kind": "amount",
+   "derived": false
+  },
+  {
+   "feature": "deductible_missing_claims",
+   "label": "Claims with unknown deductible",
+   "group": "billing",
+   "kind": "count",
+   "derived": false
+  },
+  {
+   "feature": "total_claim_days",
+   "label": "Total claim days",
+   "group": "billing",
+   "kind": "days",
+   "derived": false
+  },
+  {
+   "feature": "mean_claim_duration",
+   "label": "Mean claim duration",
+   "group": "billing",
+   "kind": "days",
+   "derived": false
+  },
+  {
+   "feature": "max_claim_duration",
+   "label": "Longest claim duration",
+   "group": "billing",
+   "kind": "days",
+   "derived": false
+  },
+  {
+   "feature": "mean_inpatient_stay",
+   "label": "Mean inpatient stay",
+   "group": "billing",
+   "kind": "days",
+   "derived": false
+  },
+  {
+   "feature": "active_months",
+   "label": "Months with claims",
+   "group": "billing",
+   "kind": "count",
+   "derived": false
+  },
+  {
+   "feature": "unique_beneficiaries",
+   "label": "Unique beneficiaries",
+   "group": "patients",
+   "kind": "count",
+   "derived": false
+  },
+  {
+   "feature": "max_claims_single_beneficiary",
+   "label": "Most claims for one beneficiary",
+   "group": "patients",
+   "kind": "count",
+   "derived": false
+  },
+  {
+   "feature": "mean_patient_age",
+   "label": "Mean patient age",
+   "group": "patients",
+   "kind": "years",
+   "derived": false
+  },
+  {
+   "feature": "deceased_patient_ratio",
+   "label": "Share of claims for deceased patients",
+   "group": "patients",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "renal_disease_ratio",
+   "label": "Share with renal disease",
+   "group": "patients",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "mean_chronic_conditions",
+   "label": "Mean chronic conditions per patient",
+   "group": "patients",
+   "kind": "score",
+   "derived": false
+  },
+  {
+   "feature": "ratio_alzheimer",
+   "label": "Share with Alzheimer's",
+   "group": "patients",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "ratio_heartfailure",
+   "label": "Share with heart failure",
+   "group": "patients",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "ratio_kidneydisease",
+   "label": "Share with kidney disease",
+   "group": "patients",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "ratio_cancer",
+   "label": "Share with cancer",
+   "group": "patients",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "ratio_obstrpulmonary",
+   "label": "Share with COPD",
+   "group": "patients",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "ratio_depression",
+   "label": "Share with depression",
+   "group": "patients",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "ratio_diabetes",
+   "label": "Share with diabetes",
+   "group": "patients",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "ratio_ischemicheart",
+   "label": "Share with ischemic heart disease",
+   "group": "patients",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "ratio_osteoporasis",
+   "label": "Share with osteoporosis",
+   "group": "patients",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "ratio_rheumatoidarthritis",
+   "label": "Share with rheumatoid arthritis",
+   "group": "patients",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "ratio_stroke",
+   "label": "Share with stroke",
+   "group": "patients",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "unique_attending_physicians",
+   "label": "Unique attending physicians",
+   "group": "physicians",
+   "kind": "count",
+   "derived": false
+  },
+  {
+   "feature": "unique_operating_physicians",
+   "label": "Unique operating physicians",
+   "group": "physicians",
+   "kind": "count",
+   "derived": false
+  },
+  {
+   "feature": "unique_other_physicians",
+   "label": "Unique other physicians",
+   "group": "physicians",
+   "kind": "count",
+   "derived": false
+  },
+  {
+   "feature": "missing_attending_ratio",
+   "label": "Share of claims without attending physician",
+   "group": "physicians",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "same_attending_operating_ratio",
+   "label": "Share where attending = operating physician",
+   "group": "physicians",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "physician_shared_ratio",
+   "label": "Share of physicians also billing elsewhere",
+   "group": "physicians",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "mean_diag_count",
+   "label": "Mean diagnosis codes per claim",
+   "group": "coding",
+   "kind": "score",
+   "derived": false
+  },
+  {
+   "feature": "mean_proc_count",
+   "label": "Mean procedure codes per claim",
+   "group": "coding",
+   "kind": "score",
+   "derived": false
+  },
+  {
+   "feature": "procedure_claim_ratio",
+   "label": "Share of claims with a procedure",
+   "group": "coding",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "unique_diagnosis_codes",
+   "label": "Distinct diagnosis codes billed",
+   "group": "coding",
+   "kind": "count",
+   "derived": false
+  },
+  {
+   "feature": "mean_reimbursed",
+   "label": "Mean reimbursement per claim",
+   "group": "billing",
+   "kind": "amount",
+   "derived": true
+  },
+  {
+   "feature": "inpatient_ratio",
+   "label": "Inpatient share of claims",
+   "group": "billing",
+   "kind": "ratio",
+   "derived": true
+  },
+  {
+   "feature": "claims_per_beneficiary",
+   "label": "Claims per beneficiary",
+   "group": "patients",
+   "kind": "score",
+   "derived": true
+  },
+  {
+   "feature": "reimbursement_per_beneficiary",
+   "label": "Reimbursement per beneficiary",
+   "group": "billing",
+   "kind": "amount",
+   "derived": true
+  },
+  {
+   "feature": "claims_per_attending_physician",
+   "label": "Claims per attending physician",
+   "group": "physicians",
+   "kind": "score",
+   "derived": true
+  },
+  {
+   "feature": "claims_per_active_month",
+   "label": "Claims per active month",
+   "group": "billing",
+   "kind": "score",
+   "derived": true
+  },
+  {
+   "feature": "cv_reimbursed",
+   "label": "Billing variability (coefficient of variation)",
+   "group": "billing",
+   "kind": "score",
+   "derived": true
+  },
+  {
+   "feature": "mean_residual",
+   "label": "Mean reimbursement residual",
+   "group": "regression",
+   "kind": "signed_amount",
+   "derived": false
+  },
+  {
+   "feature": "median_residual",
+   "label": "Median reimbursement residual",
+   "group": "regression",
+   "kind": "signed_amount",
+   "derived": false
+  },
+  {
+   "feature": "positive_residual_ratio",
+   "label": "Share of claims above predicted",
+   "group": "regression",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "total_positive_deviation",
+   "label": "Total reimbursement above predicted",
+   "group": "regression",
+   "kind": "amount",
+   "derived": false
+  },
+  {
+   "feature": "excess_reimbursement_ratio",
+   "label": "Above-predicted share of reimbursement",
+   "group": "regression",
+   "kind": "ratio",
+   "derived": false
+  },
+  {
+   "feature": "dbscan_outlier",
+   "label": "DBSCAN outlier",
+   "group": "clustering",
+   "kind": "binary",
+   "derived": false
+  },
+  {
+   "feature": "dbscan_core_distance",
+   "label": "Distance to nearest dense region (x eps)",
+   "group": "clustering",
+   "kind": "score",
+   "derived": false
+  },
+  {
+   "feature": "cluster_centroid_distance",
+   "label": "Distance to peer-group centre",
+   "group": "clustering",
+   "kind": "score",
+   "derived": false
+  },
+  {
+   "feature": "peer_group_0",
+   "label": "Peer group 0 membership",
+   "group": "clustering",
+   "kind": "binary",
+   "derived": false
+  },
+  {
+   "feature": "peer_group_1",
+   "label": "Peer group 1 membership",
+   "group": "clustering",
+   "kind": "binary",
+   "derived": false
+  },
+  {
+   "feature": "peer_group_2",
+   "label": "Peer group 2 membership",
+   "group": "clustering",
+   "kind": "binary",
+   "derived": false
+  },
+  {
+   "feature": "suspicious_itemset_claims",
+   "label": "Claims with flagged code combinations",
+   "group": "association",
+   "kind": "count",
+   "derived": false
+  },
+  {
+   "feature": "suspicious_itemset_variety",
+   "label": "Distinct flagged code combinations",
+   "group": "association",
+   "kind": "count",
+   "derived": false
+  },
+  {
+   "feature": "suspicious_itemset_claim_ratio",
+   "label": "Share of claims with flagged combinations",
+   "group": "association",
+   "kind": "ratio",
+   "derived": true
+  }
+ ],
+ "groups": {
+  "billing": "Billing behaviour",
+  "patients": "Patient mix",
+  "physicians": "Physician patterns",
+  "coding": "Clinical coding",
+  "regression": "Reimbursement deviation (regression)",
+  "clustering": "Peer-group anomaly (clustering)",
+  "association": "Code combinations (association rules)"
+ },
+ "cluster_inputs": [
+  "total_claims",
+  "inpatient_ratio",
+  "mean_reimbursed",
+  "cv_reimbursed",
+  "total_reimbursed",
+  "unique_beneficiaries",
+  "claims_per_beneficiary",
+  "unique_attending_physicians",
+  "claims_per_attending_physician",
+  "mean_claim_duration",
+  "mean_chronic_conditions",
+  "procedure_claim_ratio",
+  "mean_diag_count"
+ ]
+}

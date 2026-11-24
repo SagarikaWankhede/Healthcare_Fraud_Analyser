@@ -1,0 +1,13 @@
+{
+ "development_providers": 4328,
+ "test_providers": 1082,
+ "development_fraud": 405,
+ "test_fraud": 101,
+ "development_claims": 424435,
+ "test_claims": 133776,
+ "development_prevalence": 0.09357670979667283,
+ "test_prevalence": 0.0933456561922366,
+ "cv_folds": 5,
+ "inner_folds": 3,
+ "random_state": 42
+}

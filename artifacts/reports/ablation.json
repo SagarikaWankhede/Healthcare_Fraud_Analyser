@@ -1,0 +1,143 @@
+{
+ "selected_model": "XGBoost",
+ "config": "max_depth=5, learning_rate=0.08, min_child_weight=1",
+ "variants": [
+  {
+   "variant": "base",
+   "label": "Base provider features",
+   "groups": [
+    "base"
+   ],
+   "n_features": 50,
+   "cv_pr_auc_mean": 0.72824021151187,
+   "cv_pr_auc_std": 0.05668569650926692,
+   "cv_roc_auc_mean": 0.9420626575706953,
+   "cv_roc_auc_std": 0.018890133463787484,
+   "cv_precision_top10pct_mean": 0.6559743384121892,
+   "fold_pr_auc": [
+    0.7784985124807985,
+    0.7190698725186522,
+    0.6362919402354558,
+    0.769405846765404,
+    0.73793488555904
+   ],
+   "test_pr_auc": 0.8012192435792,
+   "test_roc_auc": 0.9681371806905461,
+   "test_capture_rate_at_100": 0.9485308552150531,
+   "test_fraud_identified_at_100": 76.0,
+   "delta_cv_pr_auc_vs_base": 0.0,
+   "delta_fold_std": 0.0
+  },
+  {
+   "variant": "base_regression",
+   "label": "Base + regression residuals",
+   "groups": [
+    "base",
+    "regression"
+   ],
+   "n_features": 55,
+   "cv_pr_auc_mean": 0.7395695007757327,
+   "cv_pr_auc_std": 0.04762605547962526,
+   "cv_roc_auc_mean": 0.9432914963579204,
+   "cv_roc_auc_std": 0.01475925927641678,
+   "cv_precision_top10pct_mean": 0.6419941192194601,
+   "fold_pr_auc": [
+    0.7831298440816448,
+    0.7415351980936364,
+    0.658711050572601,
+    0.7550771626857796,
+    0.7593942484450019
+   ],
+   "test_pr_auc": 0.803312277244871,
+   "test_roc_auc": 0.969630908044933,
+   "test_capture_rate_at_100": 0.9474596986007027,
+   "test_fraud_identified_at_100": 76.0,
+   "delta_cv_pr_auc_vs_base": 0.011329289263862674,
+   "delta_fold_std": 0.016223501939315123
+  },
+  {
+   "variant": "base_clustering",
+   "label": "Base + clustering",
+   "groups": [
+    "base",
+    "clustering"
+   ],
+   "n_features": 56,
+   "cv_pr_auc_mean": 0.7242513482558507,
+   "cv_pr_auc_std": 0.056441108325831026,
+   "cv_roc_auc_mean": 0.9420966992600295,
+   "cv_roc_auc_std": 0.01736165715153404,
+   "cv_precision_top10pct_mean": 0.6421010425020048,
+   "fold_pr_auc": [
+    0.7771363118507422,
+    0.7153247239689474,
+    0.6339103313748411,
+    0.7651728184587377,
+    0.7297125556259849
+   ],
+   "test_pr_auc": 0.8175068137973325,
+   "test_roc_auc": 0.9709732441134022,
+   "test_capture_rate_at_100": 0.9465580375855102,
+   "test_fraud_identified_at_100": 75.0,
+   "delta_cv_pr_auc_vs_base": -0.003988863256019326,
+   "delta_fold_std": 0.002623160154173863
+  },
+  {
+   "variant": "base_association",
+   "label": "Base + association rules",
+   "groups": [
+    "base",
+    "association"
+   ],
+   "n_features": 53,
+   "cv_pr_auc_mean": 0.7226705175083759,
+   "cv_pr_auc_std": 0.052807243601553776,
+   "cv_roc_auc_mean": 0.9431911285391722,
+   "cv_roc_auc_std": 0.015230080650781982,
+   "cv_precision_top10pct_mean": 0.6466452820101578,
+   "fold_pr_auc": [
+    0.780543316968473,
+    0.7072006919820202,
+    0.6422343368455126,
+    0.7553363318635401,
+    0.7280379098823341
+   ],
+   "test_pr_auc": 0.7990942469669751,
+   "test_roc_auc": 0.9694088674922537,
+   "test_capture_rate_at_100": 0.9430872678657045,
+   "test_fraud_identified_at_100": 75.0,
+   "delta_cv_pr_auc_vs_base": -0.005569694003494163,
+   "delta_fold_std": 0.008960533886597951
+  },
+  {
+   "variant": "full",
+   "label": "Full pipeline (all techniques)",
+   "groups": [
+    "base",
+    "regression",
+    "clustering",
+    "association"
+   ],
+   "n_features": 64,
+   "cv_pr_auc_mean": 0.7411722287007028,
+   "cv_pr_auc_std": 0.04141706758332076,
+   "cv_roc_auc_mean": 0.9464276246002058,
+   "cv_roc_auc_std": 0.012940183331905789,
+   "cv_precision_top10pct_mean": 0.6512429831595832,
+   "fold_pr_auc": [
+    0.7870212960072689,
+    0.744305389317316,
+    0.6736567758057713,
+    0.7473192509138487,
+    0.7535584314593087
+   ],
+   "test_pr_auc": 0.7997768826414301,
+   "test_roc_auc": 0.9718815918289077,
+   "test_capture_rate_at_100": 0.9478677384160525,
+   "test_fraud_identified_at_100": 75.0,
+   "delta_cv_pr_auc_vs_base": 0.012932017188832745,
+   "delta_fold_std": 0.022368100300863017
+  }
+ ],
+ "note": "CV metrics are the primary comparison (5 provider-level folds, same folds for every variant). Test metrics are shown for completeness and were not used for any decision."
+}

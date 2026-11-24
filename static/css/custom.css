@@ -1,21 +1,316 @@
-/* Custom aesthetics for MediGuard Dashboard */
-::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
-::-webkit-scrollbar-track {
-    background: #020617;
-}
-::-webkit-scrollbar-thumb {
-    background: #1e293b;
-    border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #0d9488;
+/* MediGuard — Custom Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #F5F7F8;
+  color: #243746;
+  line-height: 1.5;
 }
 
-.tab-btn.active {
-    background: rgba(13, 148, 136, 0.2);
-    color: #2dd4bf;
-    border-color: rgba(13, 148, 136, 0.4);
+/* ─── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #F5F7F8; }
+::-webkit-scrollbar-thumb { background: #DCE8E7; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #287D78; }
+
+/* ─── Card ───────────────────────────────────────────────── */
+.card {
+  background: #FFFFFF;
+  border: 1px solid #E1E7EA;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* ─── Buttons ────────────────────────────────────────────── */
+.btn-primary {
+  background: #287D78;
+  color: #fff;
+  border: 1px solid #287D78;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-primary:hover { background: #1f6560; }
+
+.btn-outline {
+  background: #fff;
+  color: #287D78;
+  border: 1px solid #287D78;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-outline:hover { background: #DCE8E7; }
+
+.btn-sm {
+  padding: 5px 12px;
+  font-size: 12px;
+}
+
+/* ─── Nav ─────────────────────────────────────────────────── */
+.nav-link {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #687782;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-link:hover { background: #DCE8E7; color: #243746; }
+.nav-link.active { background: #287D78; color: #fff; }
+
+/* ─── Section headers ────────────────────────────────────── */
+.section-header {
+  border-bottom: 1px solid #E1E7EA;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #243746;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-subtitle {
+  font-size: 13px;
+  color: #687782;
+  margin-top: 4px;
+}
+
+/* ─── KPI strip ──────────────────────────────────────────── */
+.kpi-card {
+  background: #FFFFFF;
+  border: 1px solid #E1E7EA;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  padding: 16px;
+  min-width: 0;
+}
+.kpi-label { font-size: 11px; font-weight: 600; color: #687782; text-transform: uppercase; letter-spacing: 0.04em; }
+.kpi-value { font-size: 22px; font-weight: 700; color: #243746; margin-top: 4px; line-height: 1.1; }
+.kpi-sub { font-size: 11px; color: #687782; margin-top: 2px; }
+
+/* ─── Tables ─────────────────────────────────────────────── */
+.mg-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.mg-table thead th {
+  background: #F5F7F8;
+  color: #687782;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #E1E7EA;
+  white-space: nowrap;
+}
+.mg-table tbody tr { transition: background 0.1s; }
+.mg-table tbody tr:nth-child(even) { background: #F5F7F8; }
+.mg-table tbody tr:hover { background: #DCE8E7; }
+.mg-table td { padding: 9px 12px; color: #243746; border-bottom: 1px solid #E1E7EA; }
+.mg-table .best-row { background: rgba(40,125,120,0.08) !important; font-weight: 600; }
+
+/* ─── Risk pills ─────────────────────────────────────────── */
+.pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.pill-high   { background: #FDEAEA; color: #B54747; border: 1px solid #F3B8B8; }
+.pill-medium { background: #FEF3E2; color: #C58B32; border: 1px solid #F5D99C; }
+.pill-low    { background: #E6F4EE; color: #43846A; border: 1px solid #B3D9C8; }
+
+/* ─── Form controls ──────────────────────────────────────── */
+.mg-input, .mg-select, .mg-textarea {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #E1E7EA;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 13px;
+  color: #243746;
+  outline: none;
+  transition: border-color 0.15s;
+  font-family: inherit;
+}
+.mg-input:focus, .mg-select:focus, .mg-textarea:focus {
+  border-color: #287D78;
+  box-shadow: 0 0 0 2px rgba(40,125,120,0.12);
+}
+.mg-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #687782;
+  margin-bottom: 4px;
+}
+.mg-textarea { resize: vertical; min-height: 80px; }
+
+/* ─── Slider ─────────────────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: #E1E7EA;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: #287D78;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* ─── Strategy cards ─────────────────────────────────────── */
+.strategy-card {
+  background: #fff;
+  border: 1px solid #E1E7EA;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  padding: 14px;
+}
+.strategy-card.proposed {
+  border-color: #287D78;
+  border-width: 2px;
+  background: #FAFEFE;
+}
+.strategy-card-name { font-size: 13px; font-weight: 600; color: #243746; margin: 4px 0 10px; }
+.strategy-card-stat-label { font-size: 11px; color: #687782; }
+.strategy-card-stat-value { font-size: 13px; font-weight: 600; color: #243746; }
+
+/* ─── Slide-in Detail Panel ──────────────────────────────── */
+#detailPanel {
+  position: fixed;
+  right: -480px;
+  top: 0;
+  width: 460px;
+  height: 100vh;
+  background: #fff;
+  border-left: 1px solid #E1E7EA;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.12);
+  z-index: 200;
+  overflow-y: auto;
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 24px;
+}
+#detailPanel.open { right: 0; }
+#detailOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  z-index: 199;
+  display: none;
+}
+#detailOverlay.show { display: block; }
+
+/* ─── Loading spinner ────────────────────────────────────── */
+.spinner {
+  display: inline-block;
+  width: 20px; height: 20px;
+  border: 2px solid #E1E7EA;
+  border-top-color: #287D78;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── Skeleton ───────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, #F5F7F8 25%, #E1E7EA 50%, #F5F7F8 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 4px;
+}
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+/* ─── Methodology pipeline ───────────────────────────────── */
+.pipeline-node {
+  background: #fff;
+  border: 1px solid #E1E7EA;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #243746;
+  text-align: center;
+}
+.pipeline-arrow {
+  color: #287D78;
+  font-size: 20px;
+  text-align: center;
+  line-height: 1;
+}
+.pipeline-branch {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.pipeline-branch .pipeline-node {
+  flex: 1;
+  font-size: 12px;
+  background: #F5F7F8;
+  color: #687782;
+}
+
+/* ─── Risk gauge bar ─────────────────────────────────────── */
+.gauge-bar-bg { background: #E1E7EA; border-radius: 4px; height: 12px; overflow: hidden; }
+.gauge-bar-fill { height: 100%; border-radius: 4px; transition: width 0.6s ease; }
+
+/* ─── Pagination ─────────────────────────────────────────── */
+.page-btn {
+  padding: 5px 10px;
+  border: 1px solid #E1E7EA;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #687782;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.page-btn:hover:not(:disabled) { background: #DCE8E7; color: #243746; border-color: #287D78; }
+.page-btn:disabled { opacity: 0.4; cursor: default; }
+.page-btn.active { background: #287D78; color: #fff; border-color: #287D78; }
+
+/* ─── Utilities ──────────────────────────────────────────── */
+.text-accent   { color: #287D78; }
+.text-high     { color: #B54747; }
+.text-medium   { color: #C58B32; }
+.text-low      { color: #43846A; }
+.text-muted    { color: #687782; }
+.text-primary  { color: #243746; }
+.font-mono     { font-family: ui-monospace, monospace; }
+.truncate      { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.error-state   { color: #B54747; background: #FDEAEA; border: 1px solid #F3B8B8; border-radius: 6px; padding: 10px 14px; font-size: 13px; }
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  #detailPanel { width: 100vw; }
+  .kpi-value { font-size: 18px; }
 }

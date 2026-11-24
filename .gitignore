@@ -1,7 +1,15 @@
 venv/
+.venv/
 __pycache__/
 *.pyc
-data/raw/*.csv
-data/processed/*.csv
+.pytest_cache/
 .ipynb_checkpoints/
 .matplotlib_cache/
+# Raw Kaggle data (download separately) and derived claim-level data
+data/raw/*.csv
+data/processed/
+# Local investigation database (runtime state)
+data/investigations.db
+# Test artefacts
+tests/.artifacts/
+node_modules/
